@@ -106,15 +106,65 @@ class bcolors:
     BackgroundWhite        = "\033[107m"
 
 class MAIN:
+    def MenuPrincipal(self):
+        if ordenes.cantidad_de_datos() == 0:
+            M.menu2()
+        else:
+            M.menu()
+    def menu2(self):
+        print(bcolors.Red+'(Actualmente la cola esta vacia)'+bcolors.ResetAll)
+        print(bcolors.Red+'------'+bcolors.ResetAll+'Seleccione una opcion'+bcolors.Red+'------'+bcolors.ResetAll)
+        print(bcolors.Green+'   1.Datos del desarrollador')
+        print('   2.Agregar orden')
+        print('   3.Salir'+bcolors.ResetAll)
+        op = int(input())
+        if op == 1:
+            print(bcolors.Red+'::::::::::::::::::' +bcolors.ResetAll+'Datos del desarrollador'+ bcolors.Red+'::::::::::::::::::' +bcolors.ResetAll)
+            print('--- '+bcolors.Blue+'Introducción a la programacion y computación 2 sección "A"'+bcolors.ResetAll)
+            print('--- '+bcolors.Blue+'Cristian Noé Axpuac Aspuac'+bcolors.ResetAll)
+            print('--- '+bcolors.Blue+'202004763\n'+bcolors.ResetAll)
+            M.menu()
+        elif op == 2:
+            print(bcolors.Yellow +'|/|\|/|\|/|'+ bcolors.LightGreen+'Ingrese la cantidad de pizzas a solicitar'+ bcolors.Yellow +'|/|\|/|\|/|' +bcolors.ResetAll)
+            NpizzasPep = input('De peperoni: ')
+            if NpizzasPep == '':
+                NpizzasPep = 0
+            else:
+                NpizzasPep = int(NpizzasPep)
+            NpizzasSal = input('De Salchicha: ')
+            if NpizzasSal == '':
+                NpizzasSal= 0
+            else:
+                NpizzasSal = int(NpizzasSal)
+            NpizzasCar = input('De Carne: ')
+            if NpizzasCar == '':
+                NpizzasCar = 0
+            else:
+                NpizzasCar = int(NpizzasCar)
+            NpizzasQue = input('De Queso: ')
+            if NpizzasQue == '':
+                NpizzasQue = 0
+            else:
+                NpizzasQue = int(NpizzasQue)
+            NpizzasPiñ = input('De Piña: ')
+            if NpizzasPiñ == '':
+                NpizzasPiñ = 0
+            else:
+                NpizzasPiñ = int(NpizzasPiñ)
+            nombre = str(input('Ingrese su nombre: '))
+            direccion = str(input('Ingrese su direccion: '))
+            M.insertar_orden(NpizzasPep, NpizzasSal, NpizzasCar, NpizzasQue, NpizzasPiñ, nombre, direccion) 
+        elif op == 3:
+            exit()
     def menu(self):
         if ordenes.cantidad_de_datos() == 0:
             print(bcolors.Red+'(Actualmente la cola esta vacia)'+bcolors.ResetAll)
-        print('------Seleccione una opcion------')
-        print('   1.Datos del desarrollador')
+        print(bcolors.Red+'------'+bcolors.ResetAll+'Seleccione una opcion'+bcolors.Red+'------'+bcolors.ResetAll)
+        print(bcolors.Green+'   1.Datos del desarrollador')
         print('   2.Mostrar cola de ordenes')
         print('   3.Agregar orden')
         print('   4.Finalizar siguiente orden')
-        print('   5.Salir')
+        print('   5.Salir'+bcolors.ResetAll)
         op = int(input())
         if op == 1:
             print(bcolors.Red+'::::::::::::::::::' +bcolors.ResetAll+'Datos del desarrollador'+ bcolors.Red+'::::::::::::::::::' +bcolors.ResetAll)
@@ -124,16 +174,38 @@ class MAIN:
             M.menu()
         elif op == 2:
             M.graficar()
-            print('-----Grafica de cola genrada con exito-----\n')
+            print(bcolors.Red+'------'+bcolors.ResetAll+'GRAFICA GENERADA EXITOSAMENTE'+bcolors.Red+'------\n'+bcolors.ResetAll)
             M.menu()
         elif op == 3:
-            print(bcolors.Yellow +'|/|\|/|\|/|'+ bcolors.White+'Ingrese la cantidad de pizzas a solicitar'+ bcolors.Yellow +'|/|\|/|\|/|' +bcolors.ResetAll)
-            NpizzasPep = int(input('De peperoni: '))
-            NpizzasSal = int(input('De Salchicha: '))
-            NpizzasCar = int(input('De Carne: '))
-            NpizzasQue = int(input('De Queso: '))
-            NpizzasPiñ = int(input('De Piña: '))
-            M.insertar_orden(NpizzasPep, NpizzasSal, NpizzasCar, NpizzasQue, NpizzasPiñ) 
+            print(bcolors.Yellow +'|/|\|/|\|/|'+ bcolors.LightGreen+'Ingrese la cantidad de pizzas a solicitar'+ bcolors.Yellow +'|/|\|/|\|/|' +bcolors.ResetAll)
+            NpizzasPep = input('De peperoni: ')
+            if NpizzasPep == '':
+                NpizzasPep = 0
+            else:
+                NpizzasPep = int(NpizzasPep)
+            NpizzasSal = input('De Salchicha: ')
+            if NpizzasSal == '':
+                NpizzasSal= 0
+            else:
+                NpizzasSal = int(NpizzasSal)
+            NpizzasCar = input('De Carne: ')
+            if NpizzasCar == '':
+                NpizzasCar = 0
+            else:
+                NpizzasCar = int(NpizzasCar)
+            NpizzasQue = input('De Queso: ')
+            if NpizzasQue == '':
+                NpizzasQue = 0
+            else:
+                NpizzasQue = int(NpizzasQue)
+            NpizzasPiñ = input('De Piña: ')
+            if NpizzasPiñ == '':
+                NpizzasPiñ = 0
+            else:
+                NpizzasPiñ = int(NpizzasPiñ)
+            nombre = str(input('Ingrese su nombre: '))
+            direccion = str(input('Ingrese su direccion: '))
+            M.insertar_orden(NpizzasPep, NpizzasSal, NpizzasCar, NpizzasQue, NpizzasPiñ, nombre, direccion) 
         elif op == 4:
             M.avanzar_cola_ordenes()
         elif op == 5:
@@ -142,7 +214,7 @@ class MAIN:
     def graficar(self):
         h = Digraph('G', filename='ColaDeOrdenes.gv', format ='png',
                         edge_attr={'color': 'orange:red', 'style': 'filled'})
-        h.attr('node', shape='diamond', style='filled', color='violet:blue')
+        h.attr('node', shape='box', style='filled', color='cyan:white')
         for i in range(0,ordenes.cantidad_de_datos()):
             if i == 0:
                 y = str(ordenes.extraer_dato(0))
@@ -159,7 +231,7 @@ class MAIN:
                 h.edge(inicio, y)
         h.view()
 
-    def insertar_orden(self, peperoni, salchicha, carne, queso, piña):
+    def insertar_orden(self, peperoni, salchicha, carne, queso, piña, name, address):
         orden1 = Cola()
         tiempoproceso = int(peperoni)*3 + int(salchicha)*4 + int(carne) * 10 + int(queso )*5 + int(piña)*2
         horaf = datetime.now().hour
@@ -170,7 +242,7 @@ class MAIN:
             tiempoproceso = tiempoproceso-60
         tiempoproceso = str(horaf)+'·'+str(tiempoproceso)
 
-        orden = ' Orden '
+        orden = 'Orden#'+str(ordenes.cantidad_de_datos()+1)+' ' + name + ', ' + address
         peperoniL = '\n     Peperoni ' + str(peperoni) 
         salchichaL = '\n     Salchicha ' + str(salchicha)
         carneL = '\n     Carne ' + str(carne)
@@ -195,7 +267,7 @@ class MAIN:
         orden1.insertar_fin(te)
         tiempo.insertar_fin(tiempoproceso)
         ordenes.insertar_fin(orden1)
-        print('----- Orden ingresada exitosamente -----')
+        print(bcolors.Red+'------'+bcolors.LightGray+' Orden ingresada exitosamente '+bcolors.Red+'------'+bcolors.ResetAll)
         print(orden1)
         M.menu()
 
@@ -211,4 +283,4 @@ M = MAIN()
 ordenes = Cola()
 tiempo = Cola()
 tiempoi = Cola()
-M.menu()
+M.MenuPrincipal()
